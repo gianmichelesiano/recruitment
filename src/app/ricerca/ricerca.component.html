@@ -1,0 +1,60 @@
+
+	<mat-card class="card-ricerca" *ngIf="formRicerca">
+       <form #formatata='ngForm' (ngSubmit)="onSubmit(formatata)">
+		            <div class="titolo-card"><h2>Search</h2></div>
+					<div class="form-ricerca">
+			  			<mat-form-field class="example-full-width">
+			    				<input matInput placeholder="Insert job position" (ngModel)="term" id="term" name="term">
+			  			</mat-form-field>
+		            </div>
+		  <button  mat-raised-button color="warn" >Search</button>
+		</form>
+	</mat-card>
+
+
+<div *ngIf="nuovaRicerca">
+    <mat-card *ngFor="let position of positions | async" >
+    	 <div class="titolo-card">
+			  	<h3>Company: {{position.company_name}}</h3>
+		 </div>
+
+       	<div fxLayout="row wrap" fxLayoutAlign=" start" class='sposta-row'>
+       		<div class="larg-tit">Position:</div>
+       	    <div>{{position.position}}</div>
+       </div>
+
+        <div fxLayout="row wrap" fxLayoutAlign=" start" class='sposta-row'>
+       		<div class="larg-tit">Details:</div>
+       	    <div>{{position.details}}</div>
+       </div>
+
+        <div fxLayout="row wrap" fxLayoutAlign=" start" class='sposta-row'>
+       		<div class="larg-tit">Place:</div>
+       	    <div>{{position.citta}}</div>
+       </div>
+
+        <div fxLayout="row wrap" fxLayoutAlign=" start" class='sposta-row'>
+       		<div class="larg-tit">Date insert:</div>
+       	    <div>{{position.data_inserimeto}}</div>
+       </div>
+
+
+
+        <div fxLayout="row wrap" fxLayoutAlign=" start" class='sposta-row'>
+       		<div class="larg-tit">Url details:</div>
+       	  
+       	    <a target="_blank" href="{{position.link}}">Link</a>
+       </div>
+
+        <div fxLayout="row wrap" fxLayoutAlign=" start" class='sposta-row'>
+       		<div class="larg-tit">Source:</div>
+       	    <div>{{position.source}}</div>
+       </div>
+
+
+    </mat-card>
+
+	 <span class="done">
+	   <button mat-raised-button color="warn" (click)="newRicerca()">Nuova Ricerca</button>
+	</span>
+</div>

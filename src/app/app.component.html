@@ -1,0 +1,61 @@
+
+
+
+
+
+<div style="height: 90vh;">
+
+   <mat-toolbar  class="mat-elevation-z6" color="primary">
+
+    <div class="sposta-fig">
+
+       <div class="bandigare-img">
+      <img  src="../../assets/img/BandiGare.png" height="30">
+       </div>
+    </div>
+
+    <span class="example-spacer"></span>
+
+    <div fxShow="true" fxHide.lt-md="true">
+
+      <!-- The following menu items will be hidden on both SM and XS screen sizes -->
+
+      <button mat-raised-button color="primary" routerLink="">Home</button>
+      <button mat-raised-button color="primary" routerLink="/ricerca">Search</button>
+      <button mat-raised-button color="accent" routerLink="/login">Login</button>
+      <button mat-raised-button color="primary" routerLink="/logout">Logout</button>
+
+    </div>
+
+    <div fxShow="true" fxHide.gt-sm="true">
+
+      <a href="#" (click)="sidenav.toggle()"><mat-icon class="white-icon">menu</mat-icon></a>
+
+    </div>
+
+  </mat-toolbar>
+
+  <mat-sidenav-container fxFlexFill class="example-container">
+
+    <mat-sidenav #sidenav fxLayout="column" position="end">
+
+      <div fxLayout="column">
+
+        <a (click)="sidenav.toggle()" mat-raised-button color="warn">Close</a>
+
+        <button mat-raised-button color="primary" routerLink="/" (click)="sidenav.toggle()">Home</button>
+        <button mat-raised-button color="primary" routerLink="/ricerca" (click)="sidenav.toggle()">Search</button>
+        <button mat-raised-button color="accent" routerLink="/login" (click)="sidenav.toggle()">Login</button>
+        <button mat-raised-button color="primary" routerLink="/logout"  (click)="sidenav.toggle()">Logout</button>
+
+      </div>
+
+    </mat-sidenav>
+
+    <mat-sidenav-content fxFlexFill>
+      <router-outlet></router-outlet>
+    </mat-sidenav-content>
+
+  </mat-sidenav-container>
+
+</div>
